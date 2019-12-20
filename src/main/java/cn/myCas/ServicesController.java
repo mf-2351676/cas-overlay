@@ -39,8 +39,8 @@ public class ServicesController {
             ReturnAllAttributeReleasePolicy re = new ReturnAllAttributeReleasePolicy();
             service.setServiceId(url);
             service.setId(id);
-            service.setAttributeReleasePolicy(re);
             service.setName(name);
+            service.setAttributeReleasePolicy(re);
             //这个是为了单点登出而作用的
             if (!"".equals(serviceId) && null!=serviceId){
                 service.setLogoutUrl(new URL("http://"+serviceId));
@@ -99,15 +99,17 @@ public class ServicesController {
             }
             OAuthRegisteredService service = new OAuthRegisteredService();
             ReturnAllAttributeReleasePolicy re = new ReturnAllAttributeReleasePolicy();
-            service.setServiceId(url);
-            service.setClientId(clientId);
-            service.setClientSecret(clientSecret);
-            service.setAttributeReleasePolicy(re);
-            service.setName(name);
             //这个是为了单点登出而作用的
             if (!"".equals(serviceId) && null!=serviceId){
                 service.setLogoutUrl(new URL("http://"+serviceId));
             }
+            service.setName(name);
+            service.setServiceId(url);
+            service.setClientId(clientId);
+            service.setClientSecret(clientSecret);
+            service.setAttributeReleasePolicy(re);
+            service.setBypassApprovalPrompt(Boolean.TRUE);
+            service.setJsonFormat(Boolean.TRUE);
             servicesManager.save(service);
             //执行load让他生效
             servicesManager.load();
