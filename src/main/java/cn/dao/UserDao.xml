@@ -2,14 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.dao.UserDao">
 
-    <select id="findAllByUserName" parameterType="string" resultType="Map">
+    <resultMap id="userResultMap" type="Map">
+        <result column="id" property="id"/>
+        <collection property="roleList" column="id" select="selectRole" ofType="map"/>
+    </resultMap>
+
+    <select id="findAllByUserName" resultMap="userResultMap">
     SELECT
-        id,
-        user_name,
-        password
+        id AS id,
+        user_name AS userName,
+        password AS password,
+        realName AS realName
     FROM
         cas_user
     WHERE
         user_name = #{userName}
+    </select>
+
+    <select id="selectRole" resultType="map">
+    SELECT
+      cr.id AS roleId,
+      cr.role_name AS roleName
+    FROM
+      user_role_info AS ur
+    LEFT JOIN cas_role AS cr ON ur.role_id = cr.id
+    WHERE
+      ur.user_id = #{id}
   </select>
 </mapper>
