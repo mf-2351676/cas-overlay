@@ -1,5 +1,7 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   org.apereo.cas.config.CasEmbeddedContainerTomcatConfiguration,\
-  cn.myCas.ServicesController,\
+  cn.controller.ServicesController,\
+  cn.config.MybatisConfig,\
+  cn.config.CustomOAuthConfiguration,\
   org.apereo.cas.audit.spi.config.CasCoreAuditConfiguration,\
   org.apereo.cas.config.CasEmbeddedContainerTomcatFiltersConfiguration

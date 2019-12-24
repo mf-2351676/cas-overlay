@@ -1,13 +1,10 @@
-package cn.myCas;
+package cn.controller;
 
-import com.sun.corba.se.spi.activation.ServerManager;
-import lombok.extern.slf4j.Slf4j;
 import org.apereo.cas.services.RegexRegisteredService;
 import org.apereo.cas.services.RegisteredService;
 import org.apereo.cas.services.ReturnAllAttributeReleasePolicy;
 import org.apereo.cas.services.ServicesManager;
 import org.apereo.cas.support.oauth.services.OAuthRegisteredService;
-import org.apereo.cas.support.oauth.web.flow.OAuth20RegisteredServiceUIAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -70,9 +67,6 @@ public class ServicesController {
     public Object deleteClient(@RequestParam("serviceId") String serviceId) {
         try {
             String url="http://"+serviceId;
-//            RegexRegisteredService service = new RegexRegisteredService();
-//            service.setServiceId(url);
-//            service.setId(id);
             RegisteredService service = servicesManager.findServiceBy(url);
             servicesManager.delete(service);
             //执行load生效
