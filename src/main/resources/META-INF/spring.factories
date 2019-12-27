@@ -3,5 +3,6 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   cn.controller.ServicesController,\
   cn.config.MybatisConfig,\
   cn.config.CustomOAuthConfiguration,\
+  cn.config.SingleLogoutTriggerConfiguration,\
   org.apereo.cas.audit.spi.config.CasCoreAuditConfiguration,\
   org.apereo.cas.config.CasEmbeddedContainerTomcatFiltersConfiguration
