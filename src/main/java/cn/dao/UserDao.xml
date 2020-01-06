@@ -12,7 +12,7 @@
         id AS id,
         user_name AS userName,
         password AS password,
-        realName AS realName
+        real_name AS realName
     FROM
         cas_user
     WHERE
