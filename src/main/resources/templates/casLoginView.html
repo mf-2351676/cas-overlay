@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -14,7 +13,7 @@
 <body class="login">
 <main role="main" class="container mt-3 mb-3">
     <div layout:fragment="content" class="row">
-        <!--<div class="col-md">
+        <div class="col-md">
             <div th:replace="fragments/loginform :: loginform"><a href="fragments/loginform.html">Login Form goes
                 here</a></div>
         </div>
@@ -31,12 +30,7 @@
             <div th:replace="fragments/loginProviders :: loginProviders"><a href="fragments/loginProviders.html">loginProviders</a>
                 fragment
             </div>
-            <div th:replace="fragments/cas-resources-list :: cas-resource-list">
-                <a href="fragments/cas-resources-list.html">cas-resource</a> list fragment
-            </div>
-        </div>-->
-        <div>
-            <div th:replace="../../fragments/loginform" />
+
         </div>
     </div>
 </main>
