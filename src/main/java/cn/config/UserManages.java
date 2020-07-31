@@ -1,5 +1,6 @@
 package cn.config;
 
+
 import cn.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apereo.cas.support.oauth.util.OAuth20Utils;
