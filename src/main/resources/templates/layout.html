@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" th:href="@{#{webjars.fontawesomemin.css}}"/>
     <link type="text/css" rel="stylesheet" th:href="@{#{webjars.latomin.css}}"/>
 
@@ -12,25 +12,197 @@
     <link rel="stylesheet" href="../static/css/cas.css" th:href="@{${#themes.code('cas.standard.css.file')}}"/>
 
     <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+    <!-- bootstrap -->
+    <link  th:href="@{/css/resource/bootstrap.min.css}" rel="stylesheet">
+    <!-- less  -->
+    <link th:href="@{/css/public.less}" rel="stylesheet/less" type="text/css">
+    <!--font-->
+    <link th:href="@{/iconfont/newfont/iconfont.css}" rel="stylesheet">
+    <!-- login -->
+    <link th:href="@{/css/platform/NewLogin.less}" rel="stylesheet/less" type="text/css">
+    <!--jquery-->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script type="text/javascript" th:src="@{/js/resource/jquery-3.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/resource/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/resource/less.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/resource/newlogin.js}"></script>
+
 
     <script type="text/javascript" th:src="@{#{webjars.jquerymin.js}}"></script>
 
 </head>
 
 <body>
-<!--<div th:replace="fragments/header :: header">
-    <a href="fragments/header.html">Header</a> fragment will go here
-</div>-->
+<!--<div th:replace="fragments/header :: header">-->
+<!--<a href="fragments/header.html">Header</a> fragment will go here-->
+<!--</div>-->
 
 <main role="main" class="container mt-3 mb-3">
+    <div id="mesContent">
+        <span id="mes"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div id="page1">
+        <div class="header_logo">
+            <img th:src="@{/images/student-logo.png}">
+            <span class="header_title">大数据教学科研实验平台</span>
+        </div>
+        <div id="sign">
+            <span style="cursor: pointer">Login</span>
+        </div>
+        <div id="loadingDiv">
+            <img class="bx-loading">
+        </div>
+        <!--轮播图-->
+        <div id="myCarousel" class="carousel slide" style="height: 100%;width: 100%;display: none">
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img th:src="@{/images/login/1.png}"/>
+                </div>
+                <div class="item">
+                    <img th:src="@{/images/login/2.png}">
+                </div>
+                <div class="item">
+                    <img th:src="@{/images/login/3.png}">
+                </div>
+                <div class="item">
+                    <img th:src="@{/images/login/4.png}">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）指标 -->
+            <div class="carousel-indicators" id="controlBtn">
+                <div data-target="#myCarousel" data-slide-to="0" class="controlBtn active">
+                    <div class='progress'></div>
+                </div>
+                <div data-target="#myCarousel" data-slide-to="1" class="controlBtn">
+                    <div class='progress'></div>
+                </div>
+                <div data-target="#myCarousel" data-slide-to="2" class="controlBtn">
+                    <div class='progress'></div>
+                </div>
+                <div data-target="#myCarousel" data-slide-to="3" class="controlBtn">
+                    <div class='progress'></div>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <div class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <a class="bx-prev"></a>
+            </div>
+            <div class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <a class="bx-next" style="right: 15%;"></a>
+            </div>
+        </div>
+    </div>
+    <div id="page2">
+        <div class="content">
+            <div>
+                <div class="row">
+                    <div class="item item-left">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-jianmo"></i>
+                        </div>
+                        <div class="right">
+                            <span class="title">一站式建模</span><br>
+                            <span class="intro">集数据预处理、模型训练、预测、评估为一体，形成从原始数据到应用服务的完整闭环</span>
+                        </div>
+                    </div>
+                    <div class="item item-right">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-gongxiang1"></i>
+                        </div>
+                        <div class="right">
+                            <span class="title">开放共享</span><br>
+                            <span class="intro">多人协同建模，支持对数据、模型、分析应用的发布与共享，降低用户时间成本，提高分析应用构建效率</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item item-left">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-jisuan"></i>
+                        </div>
+                        <div class="right">
+                            <span class="title">混合计算</span><br>
+                            <span class="intro">以数据流为中心构建大数据分析应用，融合多种异构分布式计算架构，支持Java、Python等主流编程语言混合编排</span>
+                        </div>
+                    </div>
+                    <div class="item item-right">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-biancheng"></i>
+                        </div>
+                        <div class="right">
+                            <span class="title">交互式编程</span><br>
+                            <span class="intro">交互式在线编程环境，支持SparkSql、Python、R、Shell等多种脚本语言的在线编辑、调试与执行</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item item-left">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-fenxi"></i>
+                        </div>
+                        <div class="right threeRow">
+                            <span class="title">深度分析</span><br>
+                            <span class="intro">预置数百种大规模分布式算法模型，涵盖文本分析、结构化分析、深度学习等多领域，灵活接口调用方式，兼容第三方算法模型的扩展与执行</span>
+                        </div>
+                    </div>
+                    <div class="item item-right">
+                        <div class="left">
+                            <div class='div-2'>
+                                <div class='one'></div>
+                                <div class='two'></div>
+                                <div class='three'></div>
+                            </div>
+                            <i class="iconfont icon-keshihua"></i>
+                        </div>
+                        <div class="right threeRow">
+                            <span class="title">多维可视化</span><br>
+                            <span class="intro">内置丰富图表，支持多维分析数据、分析流程、分析模型的可视化展现与报表输出，快速构建数据图表、大屏展示，方便用户自由关联数据构建图表</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Copyright © 2019 中科天玑数据科技股份有限公司</div>
+            <div>建议使用谷歌或Opera浏览器最新版</div>
+        </div>
+    </div>
+
+
     <div layout:fragment="content" id="content">
         CAS content will go here
     </div>
 </main>
 
-<!--<div th:replace="fragments/footer :: footer">
-    <a href="fragments/footer.html">Footer</a> fragment will go here
-</div>-->
+<!--<div th:replace="fragments/footer :: footer">-->
+<!--<a href="fragments/footer.html">Footer</a> fragment will go here-->
+<!--</div>-->
 
 <script th:replace="fragments/scripts"/>
 </body>
